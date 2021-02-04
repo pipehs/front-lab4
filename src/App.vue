@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <h2>Calculadora 10%</h2>
+    <br>
+    <hr>
+    <br>
     <router-view/>
   </div>
 </template>

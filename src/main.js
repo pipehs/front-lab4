@@ -3,13 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import vuetify from '@/plugins/vuetify'  // path to vuetify export
+import "./plugins/vuetify-number.js"
+import "./plugins/axios.js"
 
-Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 })
+
+Vue.config.productionTip = false

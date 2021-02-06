@@ -42,12 +42,24 @@
       <section v-else>
           <div v-if="loading">Cargando...</div>
             <h3>{{ titulo_info}}</h3>
-
-                <p><strong v-html="dieztitulo"></strong> {{ diezporciento }}</p>
-                <p><strong v-html="saldotitulo"></strong> {{ saldo }}</p>
-                <p><strong v-html="impuestotitulo"></strong> {{ impuesto }}</p>
+       
+           
       </section>
-    </div>
+        <section v-if="loadedData">
+        <table>
+            <tr>
+              <th><strong v-html="dieztitulo"></strong></th>
+              <th><strong v-html="saldotitulo"></strong></th>
+              <th><strong v-html="impuestotitulo"></strong></th>
+            </tr>
+
+            <tr>
+              <td>{{diezporciento}}</td>
+              <td>{{saldo}}</td>
+              <td>{{impuesto}}</td>
+            </tr>
+        </table>
+      </section>
   </v-form>
 </template>
 
@@ -60,9 +72,9 @@ export default {
     dieztitulo: null,
     saldotitulo: null,
     impuestotitulo: null,
-    diezporciento: null,
-    saldo: null,
-    impuesto: null,
+    diezporciento: "",
+    saldo: "",
+    impuesto: "",
     error: null,
     titulo_info: null,
     sueldo: '',
@@ -80,6 +92,7 @@ export default {
       precision: 0
     },
     loading: false,
+    loadedData:false,
     errored: false
   }),
   methods: {
@@ -117,7 +130,9 @@ export default {
               response => (
                   this.impuesto = response.data,
                   this.impuestotitulo = 'Impuesto: ')
-        ).finally(() => this.loading = false)
+        ).finally(() => {
+          this.loadedData=true;
+          this.loading = false;})
       },
   }
 }
@@ -138,5 +153,20 @@ li {
 }
 a {
   color: #42b983;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>

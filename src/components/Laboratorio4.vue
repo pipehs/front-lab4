@@ -41,11 +41,11 @@
 
       <section v-else>
           <div v-if="loading">Cargando...</div>
-            <h3>{{ titulo_info}}</h3>
        
            
       </section>
         <section v-if="loadedData">
+          <h3>{{ titulo_info}}</h3>
         <table>
             <tr>
               <th><strong v-html="dieztitulo"></strong></th>

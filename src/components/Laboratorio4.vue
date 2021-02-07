@@ -99,7 +99,7 @@ export default {
       get10porCiento:function() {
         this.titulo_info = 'Información'
         this.loading = true
-        axios.get('http://localhost:8080/rest/msdxc/dxc', {
+        axios.get('http://localhost:8082/rest/msdxc/dxc', {
           params: {
               sueldo: this.sueldo,
               ahorro: this.ahorro
@@ -110,7 +110,7 @@ export default {
                   this.dieztitulo = '10%: ')
         )
 
-        axios.get('http://localhost:8080/rest/msdxc/saldo', {
+        axios.get('http://localhost:8082/rest/msdxc/saldo', {
           params: {
               sueldo: this.sueldo,
               ahorro: this.ahorro
@@ -121,7 +121,7 @@ export default {
                   this.saldotitulo = 'Saldo: ')
         )
 
-        axios.get('http://localhost:8080/rest/msdxc/impuesto', {
+        axios.get('http://localhost:8082/rest/msdxc/impuesto', {
           params: {
               sueldo: this.sueldo,
               ahorro: this.ahorro
